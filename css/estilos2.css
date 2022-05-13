@@ -1,0 +1,322 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+    }
+    
+    * {box-sizing: border-box}
+    
+    @media screen and (min-width: 760px){
+
+        #video{
+            width: 100%;
+        }
+    
+        #contenedor{
+            height: 900px;
+            width: 1400px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    
+        header{
+        background-image: url("imagenes/header_02.png");
+        width: 1280px;
+        height: 150px;
+        margin: auto;
+        position: relative;
+        object-fit: cover;
+    
+        }
+        #noticias{
+            background-image: url("imagenes/noticias.png");
+            width: 1280px;
+            height: 830px;
+            margin: auto;
+            object-fit: cover;
+        }
+        footer{
+            background-image: url("imagenes/footer.png");
+            width: 1280px;
+            height: 220px;
+            margin: auto;
+            object-fit: cover;
+        }
+        #mapa{
+            padding: 0%;
+            margin-left: 450px;
+            margin-top: 150px;
+            object-fit: cover;
+            position: absolute;	
+        }
+        .name, .correo, #enviar{
+            padding: 0%;
+            margin-left: 660px;
+            margin-top: 70px;
+            object-fit: cover;
+            width: 300px;	
+            height: 30px;
+            position: absolute;
+        }
+        .correo{
+            margin-left: 660px;
+            margin-top: 130px;
+            object-fit: cover;
+            width: 300px;	
+            height: 30px;
+        }
+        .sugerencia{
+            margin-top: 70px;
+            margin-left: 990px;
+            object-fit: cover;
+            width: 250px;	
+            height: 100px;
+            position: absolute;
+        }
+        #preguntas, #resellers,#tec, #mas, #dominios,#centro,#porque,#poliza,#servidor,#web,#admministrador{
+            margin-top: 595px;
+            margin-left: 15px;
+            object-fit: cover;
+            position: absolute;
+        }
+    
+        #counterVisitas, #counterConected{
+            margin-top: 595px;
+            margin-left: 15px;
+            object-fit: cover;
+            position: relative;
+        }
+    
+        #resellers{
+            margin-top:535px ;
+        }
+        #tec{
+            margin-top: 480px;
+        }
+        #mas{
+            margin-top: 425px;
+        }
+        #dominios{
+            margin-top: 370px;
+        }
+        #centro{
+            margin-top: 315px;;
+        }
+        #porque{
+            margin-top: 260px;
+        }
+        #poliza{
+            margin-top: 205px;
+        }
+        #servidor{
+            margin-top: 150px;
+        }
+        #web{
+            margin-top: 95px;
+        }
+        .administrador{
+            margin-top:1085px ;
+        }
+        #avanzado , #no_limite, #basico, #starter{
+            margin-top: 560px;
+            margin-left: 650px;
+            object-fit: cover;
+            position: absolute;
+    
+            font-style:italic;
+            font-weight:bold;
+            font-size:15px;
+            font-family:'Helvetica','Verdana','Monaco',sans-serif;
+            line-height:20px;
+        }
+        #costo_avanzado, #anterior_avanzado, #costo_no_limite, #anterior_no_limite, #anterior_basico, #costo_basico, #costo_starter,#anterior_starter{
+            margin-top: 530px;
+            margin-left: 790px;
+            object-fit: cover;
+            position: absolute;
+    
+            font-style:italic;
+            font-weight:bold;
+            font-size:25px;
+            font-family:'Helvetica','Verdana','Monaco',sans-serif;
+        }
+        #anterior_avanzado, #anterior_no_limite,#anterior_basico{
+            margin-top: 480px;
+            margin-left: 790px;
+            object-fit: cover;
+            position: absolute;
+            font-size: 30px;
+        }
+        #no_limite{
+            margin-left: 280px;
+        }
+        #costo_no_limite{
+            margin-left: 410px;
+        }
+        #anterior_no_limite{
+            margin-left: 410px;
+        }
+        #basico{
+            margin-top: 195px;
+            margin-left: 670px;
+        }
+        #costo_basico{
+            margin-top: 160px;
+            margin-left: 790px;
+        }
+        #anterior_basico{
+            margin-top: 95px;
+            margin-left: 800px;
+        }
+        #starter{
+            margin-top: 195px;
+            margin-left: 290px;
+        }
+        #costo_starter{
+            margin-top: 160px;
+            margin-left: 400px;
+        }
+        #anterior_starter{
+            margin-top: 100px;
+            margin-left: 430px;
+        }
+        #texto{
+            margin-top: 240px;
+            margin-left: 1035px;
+            object-fit: cover;
+            position: absolute;
+    
+            font-style:italic;
+            font-size:13px;
+            font-family:'Helvetica','Verdana','Monaco',sans-serif;
+            line-height:18px;
+        }
+        #correo_texto{
+            margin-top: 520px;
+            margin-left: 1070px;
+            object-fit: cover;
+            font-weight:bold;
+            position: absolute;
+    
+            font-style:italic;
+            font-size:13px;
+            font-family:'Helvetica','Verdana','Monaco',sans-serif;
+        }
+        #starter_detalle, #basico_detalle{
+            padding: 0%;
+            margin-top: 370px;
+            margin-left: 390px;
+            object-fit: cover;
+            position: absolute;
+        }
+        #basico_detalle{
+            margin-left: 770px;	
+        }
+        #no_limite_detalle, #avanzado_detalle{
+            padding: 0%;
+            margin-top: 770px;
+            margin-left: 390px;
+            object-fit: cover;
+            position: absolute;
+        }
+        #avanzado_detalle{
+            margin-left: 770px;
+        }
+        #enviar{
+            margin-top: 170px;
+            }
+        #soluciones{
+            margin-left: 795px;
+            position: relative;
+        }
+        #sfcmx6gc8ds8j6j7pkuu9qe1srrqerptduh{
+            margin-top: 242px;
+            margin-left: 370px;
+            object-fit: cover;
+            position: absolute;	
+        }
+        #ver{
+            margin-top: 400px;
+            margin-left: 550px;
+            object-fit: cover;
+            position: absolute;		
+        }
+        #clientes{
+            top: 107px;
+            margin-left: 880px;
+            position: absolute;
+        }
+        #contacto{
+            margin-top: 100px;
+            margin-left: 750px;
+            position: static;
+        }
+        #compañia{
+            top: 105px;
+            margin-left: 360px;
+            position: absolute;
+        }
+        #soluciones{
+            top: 105px;
+            margin-left: 620px;
+            position: absolute;
+        }
+        #servicios{
+            top: 105px;
+            margin-left: 490px;
+            position: absolute;
+        }
+        table{
+            border-collapse: collapse;
+            border: black 1px solid;
+            background-color:rgb(241, 77, 77);
+            color: black;
+        }
+        td,th{
+            padding: 10px;
+        }
+    
+        #nombreContacto, #apellidoContacto{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+    
+        #admin{
+            margin-top: 20px;
+            margin-left: 20px;
+            object-fit: cover;
+            position: absolute;
+            padding: 12px 80px;
+            background-color: rgb(228, 63, 63);
+            font-weight: bolder;
+            border-radius: 10px;
+    
+        }
+        #netacad{
+            margin-top: 30px;
+            margin-left: 50px;
+        }
+        #php{
+            margin-top: 30px;
+            margin-left: 100px;
+        }
+        #java{
+            margin-top: 30px;
+            margin-left: 150px;
+        }
+        #visual{
+            margin-top: 50px;
+            margin-left: 300px;
+        }
+        #oracle{
+            margin-top: 50px;
+            margin-left: 150px;
+        }
+
+    }

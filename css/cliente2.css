@@ -1,0 +1,8 @@
+body{
+	background-image: url("imagenes/fondo.png");
+}
+#contenedor {
+	width: 90%;
+	height: 1000px;
+	margin-left: 200px;
+	}
