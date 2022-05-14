@@ -328,8 +328,9 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
                        
                      </div>  
                 <div class="modal-body">  
-                     <form method="post" id="insert_form"> 
-					 <label value="<?= $value->getID(); ?>" name="f_id" id="f_id" class="form-control"> </label>  
+                     <form method="post" id="insert_form">
+                          <label>Id: <?= $value->getID(); ?></label> 
+                          <br />
                           <label>Nombre:</label>
                           <input type="text" value="<?= $value->getNOMBRE(); ?>" name="f_nombre" id="f_nombre" class="form-control" />  
                           <br /> 
