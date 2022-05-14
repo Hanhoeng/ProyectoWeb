@@ -9,13 +9,11 @@
 <script type="text/javascript" src="../views/js/pdfmake-0.1.36/vfs_fonts.js"></script>
 
 <script src="../views/js/sweetalert2.all.min.js"></script>
-<script type="text/javascript" src="../views/js/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="../views/js/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="../views/js/Buttons-1.6.1/js/buttons.html5.min.js"></script>
-<script type="text/javascript" src="../views/js/Buttons-1.6.1/js/buttons.print.min.js"></script>
-<script type="text/javascript" src="../views/js/Responsive-2.2.3/js/dataTables.responsive.min.js"></script>
-<!-- jQuery library -->
-<script src="../views/js/jquery.min.js"></script>
+<script type="text/javascript" src="../css/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../css/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="../css/Buttons-1.6.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="../css/Buttons-1.6.1/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="../css/Responsive-2.2.3/js/dataTables.responsive.min.js"></script>
 
 <!-- jsPDF library -->
 <script src="../views/js/jsPDF/dist/jspdf.min.js"></script>

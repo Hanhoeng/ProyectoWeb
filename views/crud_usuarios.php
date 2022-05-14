@@ -97,8 +97,6 @@ $result_dato_catalogo_usuarios=$obj_dato_catalogo_usuarios->obtener_lista_usuari
 
 <script>
  $(document).ready(function() {
- 
-
     if ($('#lista_usuarios').length) {
         //$('#lista_usuarios').DataTable();
 
@@ -331,7 +329,7 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
                      </div>  
                 <div class="modal-body">  
                      <form method="post" id="insert_form"> 
-					 <label value="<?= $value-getID(); ?>" name="f_id" id="f_id" class="form-control"> </label>  
+					 <label value="<?= $value->getID(); ?>" name="f_id" id="f_id" class="form-control"> </label>  
                           <label>Nombre:</label>
                           <input type="text" value="<?= $value->getNOMBRE(); ?>" name="f_nombre" id="f_nombre" class="form-control" />  
                           <br /> 
