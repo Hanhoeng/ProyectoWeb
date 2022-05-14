@@ -5,15 +5,15 @@
   include("../models/class_usuarios.php");
 
   if (!empty($_POST['name']) && !empty($_POST['password'])) {
-    $records = $conn->prepare('SELECT id, nombre, contraseña FROM usuarios WHERE nombre = :name');
-    $records->bindParam(':name', $_POST['name']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
+    $obj_usuario = new usuarios(NULL,$_POST["name"],$_POST["password"]);
+    $metodos_usuarios = new usuarios_dal;
+    $id = $metodos_usuarios->is_correct($obj_usuario->getNOMBRE(),$obj_usuario->getCONTRASEÑA());
     $message = '';
-    if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
+
+    if($id!=0) {
       $_SESSION['user_id'] = $results['id'];
       header("Location: /ProyectoWeb/views/index.php");
-    }else{
+    } else {
       $message = 'Las credenciales no coinciden';
       echo $message;
     }
