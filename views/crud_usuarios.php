@@ -20,7 +20,7 @@
 <a href="clientes.php"><img id="clientes" src="../css/imagenes/clientes.png"> </a>
 <a href="contacto.php"><img id="contacto" src="../css/imagenes/contacto.png"></a> 	
 </header>
- </picture>
+</picture>
 
 <br><br><br>
 
@@ -39,6 +39,7 @@
 <legend class="text-center header"><h2>Lista de cursos para capacitación</h2></legend>
 </div>
 </body>
+
 
 </body>
 </html>

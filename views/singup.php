@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>SignUp</title>
+  <?php include_once "../inclusiones/meta_tags.php"; ?>
+	<?php include_once "../inclusiones/css.php"; ?>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
   </head>

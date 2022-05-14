@@ -13,6 +13,21 @@
             parent::__destruct();
         
     	}
+
+        //Usuario por id
+        function usuario_por_id($id){
+            $id=$this->db_conn->real_escape_string($id);
+            $sql="SELECT * FROM usuarios WHERE ID='$id'";
+            $this->set_sql($sql);
+            $result=mysqli_query($this->db_conn,$this->db_query) or die(mysqli_error($this->db_conn));
+            $total_USUARIOS=mysqli_num_rows($result);
+            $obj_det=null;
+            if($total_USUARIOS==1){
+                $renglon=mysqli_fetch_assoc($result);
+                $obj_det= new usuarios($renglon["ID"],utf8_encode($renglon["NOMBRE"]),utf8_encode($renglon["CONTRASEÑA"]));
+            }//end if
+            return $obj_det;
+        }
     
             //Insertar
         function insertar_usuario($obj){
