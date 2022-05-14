@@ -1,7 +1,7 @@
 <?php
 if (!empty($_POST)){
-	require_once 'php/funciones_php.php';
-    include("models/class_usuarios_dal.php");
+	require_once '../views/php/funciones_php.php';
+    include("../models/class_usuarios_dal.php");
 	$metodos_usuario=new usuarios_dal;
 
 	if (isset($_POST['f_id'])){

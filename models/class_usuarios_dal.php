@@ -53,10 +53,9 @@
             return $insertado;
         }//end insertar_usuario
     
-        function borrar_usuario($id,$nombre){
+        function borrar_usuario($id){
             $id = $this->db_conn->real_escpae_string($id);
-            $nombre = $this->db_conn->real_escape_string($nombre);
-            $sql = "DELETE FROM usuarios WHERE ID='$id' AND NOMBRE='$nombre';";
+            $sql = "DELETE FROM usuarios WHERE ID='$id';";
             $this->set_sql($sql);
             $this->db_conn->set_charset("utf8");
             mysqli_query($this->db_conn,$this->db_query) or die(mysqli_error($this->db_conn));

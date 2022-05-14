@@ -1,5 +1,5 @@
 <?php
-include("models/class_usuarios_dal.php");
+include("../models/class_usuarios_dal.php");
 if(isset($_POST['ID'])){
    $id=  $_POST['ID'];
    //echo $id;
