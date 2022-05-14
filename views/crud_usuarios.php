@@ -159,7 +159,7 @@ $('#add').click(function(){
           else  
           {  
                $.ajax({  
-                    url:"controller_inserta_actualiza_usuarios.php",  
+                    url:"../controller/controller_inserta_actualiza_usuarios.php",  
                     method:"POST",  
                     data:$('#insert_form').serialize(),  
                     beforeSend:function(){ 
@@ -211,7 +211,7 @@ $('#add').click(function(){
  if(result){
    // AJAX Request
    $.ajax({
-     url: 'controller_delete_usuarios.php',
+     url: '../controller/controller_delete_usuarios.php',
      type: 'POST',
      data: { id:deleteid },
      success: function(response){
@@ -242,7 +242,7 @@ $('#lista_usuarios tbody').on('click', '.ver', function() {
           if(usuario_id != '')  
            {  
                 $.ajax({  
-                     url:'controller_select_usuarios.php',  
+                     url:'../controller/controller_select_usuarios.php',  
                      method:'POST',  
                      data:{id:usuario_id},  
                      success:function(response){
@@ -266,7 +266,7 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
     $("h4.modal-title").text("Modificación de Usuario");
     var usuario_id = $(this).data('id');
                $.ajax({  
-                url:"controller_fetch_usuarios.php",  
+                url:"../controller/controller_fetch_usuarios.php",  
                 method:"POST",  
                 data:{usuario_id:usuario_id},  
                 dataType:"json",  
