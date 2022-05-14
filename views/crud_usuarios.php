@@ -20,9 +20,10 @@
 <a href="clientes.php"><img id="clientes" src="../css/imagenes/clientes.png"> </a>
 <a href="contacto.php"><img id="contacto" src="../css/imagenes/contacto.png"></a> 	
 </header>
- </picture>
+</picture>
 
 <br><br><br>
+
 
 
 </body>
