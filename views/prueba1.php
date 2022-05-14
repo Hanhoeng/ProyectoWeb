@@ -24,26 +24,11 @@
 
 <br><br><br>
 
-<div class="container-fluid">
-    <div class="row">
-        <?php
-        include_once "inclusiones/menu_horizontal_superior.php";
-        ?>
-    </div>
-</div>
-
-
-<!--<div class="container-fluid">  -->
-<div class="container" style="margin-top: 65px !important;">  
-<div class="form-group">
-<legend class="text-center header"><h2>Lista de cursos para capacitación</h2></legend>
-</div>
-</body>
 
 </body>
 </html>
 <?php  
-include("models/class_usuarios_dal.php");
+include("./crud_usuarios.php");
 $obj_dato_catalogo_cursos=new usuarios_dal;
 
 $result_dato_catalogo_cursos=$obj_dato_catalogo_cursos->list_usuarios();
