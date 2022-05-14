@@ -4,7 +4,7 @@
     $message = '';
 
     if (!empty($_POST['name']) && !empty($_POST['password'])) {
-    $sql = "INSERT INTO usuarios (usuario, contraseña) VALUES (:name, :password)";
+    $sql = "INSERT INTO usuarios (NOMBRE, CONTRASEÑA) VALUES (:name, :password)";
     $stmt =$conn->prepare($sql);
     $stmt->bindParam(':name', $_POST['name']);
     $stmt->bindParam(':password', $_POST['password']);
