@@ -98,5 +98,24 @@
             $cuantos= $renglon[0];
             return $cuantos;
         }//end existeUsuario
+
+        function obtener_lista_usuarios(){
+            $sql="SELECT * FROM usuarios";
+            $this->set_sql($sql);
+            $rs=mysqli_query($this->db_conn,$this->db_query) or die(mysqli_error($this->db_conn));
+            $total_USUARIOS=mysqli_num_rows($rs);
+            $obj_det=null;
+
+            if($total_USUARIOS>0){
+                $i=0;
+                while($renglon = mysqli_fetch_assoc($rs)){
+                    $obj_det= new usuarios($renglon["ID"],utf8_encode($renglon["NOMBRE"]),utf8_encode($renglon["CONTRASEÑA"]));
+                    $i++;
+                    $lista[$i]=$obj_det;
+                    unset($obj_det);
+                }//end while
+                return $lista;
+            }//end if
+        }//end obtener_lista_USUARIOS
     }
 ?>
