@@ -36,9 +36,9 @@
             $sql .= "NOMBRE,";
             $sql .= "CONTRASEÑA";
             $sql .= ") ";
-            $sql .= "VALUES(";
-            $sql .= "'".$obj->getID()."',";
-            $sql .= "'".$obj->getNOMBRE()."',";
+            $sql .= " VALUES(";
+            $sql .= "'".$obj->getID()."', ";
+            $sql .= "'".$obj->getNOMBRE()."', ";
             $sql .= "'".$obj->getCONTRASEÑA()."',";
             $sql .= ");";
             $this->set_sql($sql);
@@ -54,23 +54,22 @@
         }//end insertar_usuario
     
         function borrar_usuario($id){
-            $id = $this->db_conn->real_escpae_string($id);
-            $sql = "DELETE FROM usuarios WHERE ID='$id';";
+            $id = $this->db_conn->real_escape_string($id);
+            $sql = "DELETE FROM usuarios WHERE ID='$id'";
             $this->set_sql($sql);
-            $this->db_conn->set_charset("utf8");
             mysqli_query($this->db_conn,$this->db_query) or die(mysqli_error($this->db_conn));
             if(mysqli_affected_rows($this->db_conn)==1) {
-                $insertado=1;
+                $borrado=1;
             }else{
-                $insertado=0;
+                $borrado=0;
             }
-            return $insertado;
+            return $borrado;
         }//end borrar_usuario
     
-        function actualiza_usuario($obj,$id){
+        function actualiza_usuario($obj){
             $sql = "UPDATE usuarios SET ";
-            $sql .= "ID=".$obj->getID();
-            $sql .= " WHERE NOMBRE = '".$obj->getNOMBRE()."' AND ID='$id'";
+            $sql .= "NOMBRE=".$obj->getNOMBRE()."'";
+            $sql .= " WHERE ID = '".$obj->getID()."'";
             $this->set_sql($sql);
             $this->db_conn->set_charset("utf8");
             mysqli_query($this->db_conn,$this->db_query) or die(mysqli_error($this->db_conn));

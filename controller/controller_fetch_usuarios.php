@@ -1,7 +1,7 @@
 <?php
 include("../models/class_usuarios_dal.php");
-if(isset($_POST['ID'])){
-   $id=  $_POST['ID'];
+if(isset($_POST['usuario_id'])){
+   $id=  $_POST['usuario_id'];
    //echo $id;
       $output='';      
       $metodos_usuario=new usuarios_dal;

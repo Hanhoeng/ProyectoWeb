@@ -4,11 +4,10 @@ if (!empty($_POST)){
     include("../models/class_usuarios_dal.php");
 	$metodos_usuario=new usuarios_dal;
 
-	if (isset($_POST['f_id'])){
-		$usuario_id=strtoupper($_POST['f_id']);
+	if (isset($_POST['usuario_id'])){
+		$usuario_id=strtoupper($_POST['usuario_id']);
 	}else{
 		$usuario_id=null;
-		echo "$usuario_id";
 		echo "no llego datos del Id del usuario";
 		exit;
 	}
@@ -41,7 +40,7 @@ if (!empty($_POST)){
         }
 
 		if (!$errores){
-			$obj_usuario=new ticket_turno($usuario_id,$nomb);
+			$obj_usuario=new usuarios($usuario_id,$nomb,$contra);
 			if ($usuario_id==''){
 
 				if($metodos_usuario->insertar_usuario($obj_usuario)=="1"){

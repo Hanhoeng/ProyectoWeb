@@ -45,7 +45,7 @@ $result_dato_catalogo_usuarios=$obj_dato_catalogo_usuarios->obtener_lista_usuari
 <div class="form-group col-md-12">
 
                     <div align="center">  
-                          <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-primary">Agregar Usuario</button>  
+                         <input name="add" id="add" type="submit" href="../views/agregar_usuario.php" class="btn btn-primary" value="Agregar Usuario"></div>
                      </div> 
 
 
@@ -71,7 +71,7 @@ $result_dato_catalogo_usuarios=$obj_dato_catalogo_usuarios->obtener_lista_usuari
                                 <td><?=$value->getNOMBRE();?></td>
                                 <td><?=$value->getCONTRASEÑA();?></td>
 <td>
-<button class='update btn btn-success btn-sm' id='update_<?= $value->getID(); ?>' data-id='<?= $value->getID(); ?>' >Actualizar</button>
+<button data-toggle="modal" data-target="#add_data_Modal" class='update btn btn-success btn-sm'  id='update_<?= $value->getID(); ?>' data-id='<?= $value->getID(); ?>' >Actualizar</button>
 </td>
 
 <td>
@@ -208,28 +208,28 @@ $('#add').click(function(){
     // Confirm box
     bootbox.confirm("¿Deseas realmente borrar el registro?", function(result) {
  
- if(result){
-   // AJAX Request
-   $.ajax({
-     url: '../controller/controller_delete_usuarios.php',
-     type: 'POST',
-     data: { id:deleteid },
-     success: function(response){
-        //alert(response);
-       // remueve el registro tambien del datatable
-       if(response == 1){
-          $(el).closest('tr').css('background','tomato');
-          $(el).closest('tr').fadeOut(800,function(){
-          $(this).remove();
-  });
-   }else{
-          bootbox.alert('Registro No Fue Eliminado.');
-   }
+     if(result){
+     // AJAX Request
+     $.ajax({
+          url: '../controller/controller_delete_usuarios.php',
+          type: 'POST',
+          data: { id:deleteid },
+          success: function(response){
+          //alert(response);
+          // remueve el registro tambien del datatable
+          if(response == 1){
+               $(el).closest('tr').css('background','tomato');
+               $(el).closest('tr').fadeOut(800,function(){
+               $(this).remove();
+     });
+     }else{
+               bootbox.alert('Registro No Fue Eliminado.');
      }
-   });
- }
+          }
+     });
+     }
 
-});
+     });
 });
 
 
@@ -253,7 +253,7 @@ $('#lista_usuarios tbody').on('click', '.ver', function() {
                     error : function(request, status, error) {
 
                             var val = request.responseText;
-                            alert("error"+val);
+                            alert("error "+val);
                     }  
                 });  
            }                  
@@ -268,7 +268,7 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
                $.ajax({  
                 url:"../controller/controller_fetch_usuarios.php",  
                 method:"POST",  
-                data:{usuario_id:usuario_id},  
+                data:{id:usuario_id},  
                 dataType:"json",  
                 success:function(data){
                 //alert(JSON.stringify(data));
@@ -283,7 +283,7 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
                     error : function(request, status, error) {
 
                             var val = request.responseText;
-                            alert("error"+val);
+                            alert("error "+val);
                     }    
            });
  
@@ -328,18 +328,18 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
                        
                      </div>  
                 <div class="modal-body">  
-                     <form method="post" id="insert_form">
-                          <label>Id: <?= $value->getID(); ?></label> 
+                <form method="post" id="insert_form">
+                          <label>Id Usuario: </label> 
                           <br />
                           <label>Nombre:</label>
-                          <input type="text" value="<?= $value->getNOMBRE(); ?>" name="f_nombre" id="f_nombre" class="form-control" />  
+                          <input type="text" name="f_nombre" id="f_nombre" class="form-control" />  
                           <br /> 
                           <label>Contraseña:</label>
-                          <input type="text" value="<?= $value->getCONTRASEÑA(); ?>" name="f_contraseña" id="f_contraseña" class="form-control" />  
+                          <input type="text" name="f_contraseña" id="f_contraseña" class="form-control" />  
                           <br />   
                           <input type="hidden" name="usuario_id" id="usuario_id" readonly="true" />  
                           <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />  
-                     </form>  
+                     </form> 
                 </div>  
                 <div class="modal-footer">  
                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
