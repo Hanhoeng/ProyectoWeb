@@ -23,6 +23,13 @@
 	
 	
 	<title>The Web Hosting</title>
+
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+      function onSubmit(token) {
+        document.getElementById("Login").submit();
+      }
+    </script>
 </head>
 <body background="../css/imagenes/fondo.png">
 <section id="contenedor">
@@ -240,7 +247,10 @@ function showSlides() {
 				</div>
 		
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-			<button id="enviar" type="submit" class="btn btn-light">Enviar Sugerencia</button>	
+			<button class="g-recaptcha" 
+        			data-sitekey="6LeGJw8gAAAAAMK11G3_jvFYoPV8PNhGdLG99Yfl" 
+        			data-callback='onSubmit' 
+        			data-action='submit'>Enviar</button>	
 		</form>
 	</footer>
 
