@@ -15,5 +15,4 @@
       $message = 'Hubo un error al crear al usuario';
     }
   }
-
 ?>

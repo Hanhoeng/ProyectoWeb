@@ -5,6 +5,12 @@
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+      function onSubmit(token) {
+        document.getElementById("Login").submit();
+      }
+    </script>
   </head>
   <body background="../css/imagenes/fondo.png">
   <header>
@@ -17,10 +23,24 @@
 
     <h1>Acceder</h1>
     <span>o <a href="singup.php">Registrarse</a></span>
-    <form action="../controller/controller_login.php" method="POST">
-      <input name="name" type="text" placeholder="Enter your name" required="True">
-      <input name="password" type="password" placeholder="Enter your Password" required="True">
-      <input type="submit" value="Acceder">
+    <form id="Login" method="POST" action="../controller/controller_login.php" onsubmit="return valida_login()" ;>
+      <!-- Usuario -->
+      <div class="form-group">
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required="True">
+      </div>
+      <!-- Password -->
+      <div class="form-group">
+          <input type="password" class="form-control" id="password" name="password" placeholder="Enter your Password" required="True">
+      </div>
+      <!-- Captcha -->
+      <button class="g-recaptcha" 
+        data-sitekey="6LeGJw8gAAAAAMK11G3_jvFYoPV8PNhGdLG99Yfl" 
+        data-callback='onSubmit' 
+        data-action='submit'>Acceder</button>
+
     </form>
+    <?php
+      include_once "../inclusiones/js_incluidos.php";
+    ?>
   </body>
 </html>

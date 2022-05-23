@@ -1,21 +1,29 @@
 <?php
   session_start();
-  include("../models/class_db.php");
-  include("../models/class_usuarios_dal.php");
-  include("../models/class_usuarios.php");
+  $user=isset($_POST["name"]) ? $user=strtoupper($_POST["name"]) : $user=null;
+  $pass=isset($_POST["password"]) ? $pass=strtoupper($_POST["password"]) : $pass=null;
+  if($_POST){
+    require_once '../views/php/funciones_php.php';
+    $errores=array();
+    if(!validaRequerido($user)){
+        $errores[]="Usuario llegó vacío";
+    }
+    if(!validaRequerido($pass)){
+        $errores[]="Contraseña llego vacío";
+    }
+  }
 
-  if (!empty($_POST['name']) && !empty($_POST['password'])) {
-    $obj_usuario = new usuarios(NULL,$_POST["name"],$_POST["password"]);
+  if(!$errores){
+    include("../models/class_usuarios.php");
+    include("../models/class_usuarios_dal.php");
+    $obj_usuario = new usuarios(NULL,$user,$pass);
     $metodos_usuarios = new usuarios_dal;
     $id = $metodos_usuarios->is_correct($obj_usuario->getNOMBRE(),$obj_usuario->getCONTRASEÑA());
-    $message = '';
-
-    if($id!=0) {
-      $_SESSION['user_id'] = $results['id'];
+    if($id!=0){
+      $_SESSION['user_id']=$id;
       header("Location: /ProyectoWeb/views/index.php");
-    } else {
-      $message = 'Las credenciales no coinciden';
-      echo $message;
+    }else{
+      header("Location: /ProyectoWeb/views/Login.php");
     }
   }
 ?>

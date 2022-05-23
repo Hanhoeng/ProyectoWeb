@@ -1,6 +1,7 @@
 <?php
     include("class_usuarios.php");
     include("class_db2.php");
+    
     class usuarios_dal extends class_db{
     
     	function __construct()
