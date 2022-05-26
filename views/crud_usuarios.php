@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+     if(isset($_SESSION['user_id']) || $_SESSION['user_id'] != 0){
+?>
 <head>
      <?php include_once "../inclusiones/meta_tags.php"; ?>
 	<link rel="stylesheet" href="../css/estilos2.css">	
@@ -353,3 +356,10 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
  }
  
  ?>
+<?php
+     }
+	else{
+		echo "<h1>GO AWAY HACKER</p>";
+          exit;
+	}
+?>
