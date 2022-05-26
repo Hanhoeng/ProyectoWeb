@@ -26,18 +26,18 @@
 <!--<div class="container-fluid">  -->
 <div class="container" style="margin-top: 65px !important;">  
 <div class="form-group">
-<legend class="text-center header"><h2>Lista de usuarios registrados</h2></legend>
+<legend class="text-center header"><h2>Lista de suferencias registradas</h2></legend>
 </div>
 
 <?php  
 include("../models/class_sugerencias_dal.php");
-$obj_dato_catalogo_usuarios=new sugerencias_dal;
+$obj_dato_catalogo_sugerencias=new sugerencias_dal;
 
-$result_dato_catalogo_usuarios=$obj_dato_catalogo_usuarios->obtener_lista_sugerencias();
+$result_dato_catalogo_sugerencias=$obj_dato_catalogo_sugerencias->obtener_lista_sugerencias();
 
-    if ($result_dato_catalogo_usuarios==NULL){
+    if ($result_dato_catalogo_sugerencias==NULL){
 
-            print "<p>No se encontraron resultados de usuarios</p>";
+            print "<p>No se encontraron resultados de sugerencias</p>";
         }
         else{
 /*
@@ -51,7 +51,7 @@ $result_dato_catalogo_usuarios=$obj_dato_catalogo_usuarios->obtener_lista_sugere
 <div class="form-group col-md-12">
 
                     <div align="center">  
-                         <input name="add" id="add" type="submit" href="../views/agregar_usuario.php" class="btn btn-primary" value="Agregar Usuario"></div>
+                         <input name="add" id="add" type="submit" href="../views/agregar_sugerencias.php" class="btn btn-primary" value="Agregar Sugerencia"></div>
                      </div> 
 
 
@@ -61,7 +61,8 @@ $result_dato_catalogo_usuarios=$obj_dato_catalogo_usuarios->obtener_lista_sugere
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>NOMBRE</th>
-                                                    <th>CONTRASEÑA</th>
+                                                    <th>CORREO</th>
+                                                    <th>SUGERENCIA</th>
                                                     <th>ACTUALIZAR</th> 
                                                     <th>VER</th> 
                                                     <th>ELIMINAR</th>
@@ -70,7 +71,7 @@ $result_dato_catalogo_usuarios=$obj_dato_catalogo_usuarios->obtener_lista_sugere
                                 </thead>
                                 <tbody>
                                 <?php
-    						foreach ($result_dato_catalogo_usuarios as $key => $value) {
+    						foreach ($result_dato_catalogo_sugerencias as $key => $value) {
 		?>
     						<tr>
 								<td><?=$value->getID();?></td>
@@ -104,28 +105,28 @@ $result_dato_catalogo_usuarios=$obj_dato_catalogo_usuarios->obtener_lista_sugere
 
 <script>
  $(document).ready(function() {
-    if ($('#lista_usuarios').length) {
+    if ($('#lista_sugerencias').length) {
         //$('#lista_usuarios').DataTable();
 
-$('#lista_usuarios').DataTable( {
+$('#lista_sugerencias').DataTable( {
         
 dom: 'Blfrtip',
         buttons: [{
             extend: 'excelHtml5',
                 messageTop: 'USUARIOS',
                 text:"Exporta Excel",
-                title:"Listado de usuarios",
+                title:"Listado de sugerencias",
         },
         {
             /*'csvHtml5',*/
                 extend: 'csvHtml5',
                 text:"Exporta csv",
-                title:"Listado de usuarios",
-                messageTop: 'Usuarios',
+                title:"Listado de sugerencias",
+                messageTop: 'Sugerencias',
               },
                           {
                 extend: 'pdfHtml5',
-                title: 'Listado de usuarios'
+                title: 'Listado de sugerencias'
             }
         ],
     responsive: true,
@@ -146,7 +147,7 @@ dom: 'Blfrtip',
 
 
 $('#add').click(function(){  
-            $("h4.modal-title").text("Agregado de Usuario");
+            $("h4.modal-title").text("Agregado de Sugerencias");
             $('#insert').val("Insert");  
             $('#insert_form')[0].reset();  
       });
@@ -166,11 +167,11 @@ $('#add').click(function(){
           else  
           {  
                $.ajax({  
-                    url:"../controller/controller_inserta_actualiza_usuarios.php",  
+                    url:"../controller/controller_inserta_actualiza_sugerencias.php",  
                     method:"POST",  
                     data:$('#insert_form').serialize(),  
                     beforeSend:function(){ 
-                           if($('#usuario_id').val() == ''){ 
+                           if($('#sugerencia_id').val() == ''){ 
                              $('#insert').val("Insertando");
                            }
                            else{
@@ -185,18 +186,18 @@ $('#add').click(function(){
                          
                           //bootbox.alert('correcto!');
                           Swal.fire({
-                          title: "Registro de Usuarios",
-                          text: "¡Usuario Ingresado Correctamente!",
+                          title: "Registro de Sugerencia",
+                          text: "Sugerencia Ingresado Correctamente!",
                           type: "success"
                           }).then(function() {
-                            window.location = "crud_usuarios.php";
+                            window.location = "crud_sugerencias.php";
                           });
 
                       }
                           else{
                             Swal.fire({
                                     type: 'error',
-                                    title: 'No se agregó correctamente el usuario, vuelva a intentar.',
+                                    title: 'No se agregó correctamente la sugerencia, vuelva a intentar.',
                         });
                           }  
                      }  
@@ -205,7 +206,7 @@ $('#add').click(function(){
       })
  
 
-    $('#lista_usuarios tbody').on('click', '.delete', function() {
+    $('#lista_sugerencias tbody').on('click', '.delete', function() {
        
     var el = this;
   
@@ -218,7 +219,7 @@ $('#add').click(function(){
      if(result){
      // AJAX Request
      $.ajax({
-          url: '../controller/controller_delete_usuarios.php',
+          url: '../controller/controller_delete_sugerencias.php',
           type: 'POST',
           data: { id:deleteid },
           success: function(response){
@@ -240,18 +241,18 @@ $('#add').click(function(){
 });
 
 
-$('#lista_usuarios tbody').on('click', '.ver', function() {
-         $("h4.modal-title").text("Detalle de Usuario");
+$('#lista_sugerencias tbody').on('click', '.ver', function() {
+         $("h4.modal-title").text("Detalle de Sugerencia");
     // ver id
-    var usuario_id = $(this).data('id');
+    var sugerencia_id = $(this).data('id');
     //alert(usuario_id);
     
-          if(usuario_id != '')  
+          if(sugerencia_id != '')  
            {  
                 $.ajax({  
-                     url:'../controller/controller_select_usuarios.php',  
+                     url:'../controller/controller_select_sugerencias.php',  
                      method:'POST',  
-                     data:{id:usuario_id},  
+                     data:{id:sugerencia_id},  
                      success:function(response){
                             //alert(response);  
                           $('#employee_detail').html(response);  
@@ -269,18 +270,18 @@ $('#lista_usuarios tbody').on('click', '.ver', function() {
 
 
 /*update*/
-$('#lista_usuarios tbody').on('click', '.update', function() {
+$('#lista_sugerencias tbody').on('click', '.update', function() {
     $("h4.modal-title").text("Modificación de Usuario");
     var usuario_id = $(this).data('id');
                $.ajax({  
-                url:"../controller/controller_fetch_usuarios.php",  
+                url:"../controller/controller_fetch_sugerencias.php",  
                 method:"POST",  
                 data:{id:usuario_id},  
                 dataType:"json",  
                 success:function(data){
                 //alert(JSON.stringify(data));
 
-                     $('#usuario_id').val(data.ID); 
+                     $('#sugerencia_id').val(data.ID); 
                      $('#f_nombre').val(data.nombre);  
                      $('#f_correo').val(data.correo);
 					 $('#f_sugerencia').val(data.sugerencia);      
@@ -309,7 +310,7 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
            <div class="modal-content">  
                 <div class="modal-header">  
                      <legend class="text-center header">
-                     <h4 class="modal-title">Detalles de Usuario</h4>
+                     <h4 class="modal-title">Detalles de Sugerencias</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                      </legend>  
                        
@@ -337,7 +338,7 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
                      </div>  
                 <div class="modal-body">  
                 <form method="post" id="insert_form">
-                          <label>Id Usuario: </label> 
+                          <label>Id Sugerencia: </label> 
                           <br />
                           <label>Nombre:</label>
                           <input type="text" name="f_nombre" id="f_nombre" class="form-control" />  
@@ -345,11 +346,10 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
                           <label>Correo:</label>
                           <input type="text" name="f_correo" id="f_correo" class="form-control" />  
                           <br />
-						  <label>Sugerencias:</label>
+					 <label>Sugerencias:</label>
                           <input type="text" name="f_sugerencias" id="f_sugerencias" class="form-control" />  
                           <br />
-						     
-                          <input type="hidden" name="usuario_id" id="usuario_id" readonly="true" />  
+                          <input type="hidden" name="sugerencia_id" id="sugerencia_id" readonly="true" />  
                           <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />  
                      </form> 
                 </div>  
