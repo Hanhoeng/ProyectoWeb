@@ -1,14 +1,4 @@
 <?php
-class Plan
-{
-	private $id;
-	private $id_usuario;
-	private $id_oferta;
-	private $fecha_registro;
-	
-	public function __GET($k){ return $this->$k; }
-	public function __SET($k, $v){ return $this->$k = $v; }
-}
 if (class_exists("plan")!=True){ 
     class plan{
         protected $ID;

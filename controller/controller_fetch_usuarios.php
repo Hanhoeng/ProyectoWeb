@@ -1,16 +1,21 @@
 <?php
 include("../models/class_usuarios_dal.php");
-if(isset($_POST['usuario_id'])){
-   $id=  $_POST['usuario_id'];
+if(isset($_POST['oferta_id'])){
+   $id=  $_POST['oferta_id'];
    //echo $id;
       $output='';      
-      $metodos_usuario=new usuarios_dal;
-      $result_usuario=$metodos_usuario->usuario_por_id($id);
+      $metodos_ofertas=new oferta_dal;
+      $result_oferta=$metodos_ofertas->datos_por_id($id);
       //foreach ($result_usuario as $key => $value) {
         $arreglo=array(
         "Id"=>$result_usuario->getID(),
         "Nombre"=>$result_usuario->getNOMBRE(),
-        "Contraseña"=>$result_usuario->getCONTRASEÑA()
+        "Precio"=>$result_usuario->getPRECIO(),
+        "Espacio"=>$result_usuario->getESPACIO(),
+        "Cuentas"=>$result_usuario->getPRECIO(),
+        "Garantia"=>$result_usuario->getGARANTIA(),
+        "Nombre_dominio"=>$result_usuario->getNOMBRE_DOMINIO(),
+        "Vencimiento"=>$result_usuario->getVENCIMIENTO(),
         );
 
 

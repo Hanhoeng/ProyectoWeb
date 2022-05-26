@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <header>
     <a href="index.php"><img id="logo" src="/ProyectoWeb/css/imagenes/logo (1).png"></a>
     <a href="compañia.php"><img id="compañia" src="/ProyectoWeb/css/imagenes/compañia.png"></a>
