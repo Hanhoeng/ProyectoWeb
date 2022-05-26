@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	if(isset($_SESSION['user_id']) || $_SESSION['user_id'] != 0){
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,3 +31,9 @@
 
   </body>
 </html>
+<?php
+  }else{
+		echo "<h1>GO AWAY HACKER</p>";
+    exit;
+	}
+?>
