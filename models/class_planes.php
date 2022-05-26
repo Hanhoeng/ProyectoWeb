@@ -32,7 +32,7 @@ if (class_exists("plan")!=True){
             $this->ID=$id;
         }
     
-        function geID_USUARIO(){
+        function getID_USUARIO(){
             return $this->ID_USUARIO;
         }
     
