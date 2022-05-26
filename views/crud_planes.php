@@ -37,7 +37,7 @@ $result_dato_catalogo_planes=$obj_dato_catalogo_planes->obtener_lista_planes();
 
     if ($result_dato_catalogo_planes==NULL){
 
-            print "<p>No se encontraron resultados de usuarios</p>";
+            print "<p>No se encontraron resultados de planes</p>";
         }
         else{
 /*
@@ -51,7 +51,7 @@ $result_dato_catalogo_planes=$obj_dato_catalogo_planes->obtener_lista_planes();
 <div class="form-group col-md-12">
 
                     <div align="center">  
-                         <input name="add" id="add" type="submit" href="../views/agregar_usuario.php" class="btn btn-primary" value="Agregar Usuario"></div>
+                         <input name="add" id="add" type="submit" href="../views/agregar_planes.php" class="btn btn-primary" value="Agregar Planes"></div>
                      </div> 
 
 
@@ -60,8 +60,9 @@ $result_dato_catalogo_planes=$obj_dato_catalogo_planes->obtener_lista_planes();
                                 <thead class="text-capitalize">
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>NOMBRE</th>
-                                                    <th>CONTRASEÑA</th>
+                                                    <th>ID_USUARIO</th>
+                                                    <th>ID_OFERTA</th>
+                                                    <th>FECHA_REGISTRO</th>
                                                     <th>ACTUALIZAR</th> 
                                                     <th>VER</th> 
                                                     <th>ELIMINAR</th>
@@ -70,13 +71,13 @@ $result_dato_catalogo_planes=$obj_dato_catalogo_planes->obtener_lista_planes();
                                 </thead>
                                 <tbody>
                                 <?php
-    						foreach ($result_dato_catalogo_usuarios as $key => $value) {
+    						foreach ($result_dato_catalogo_planes as $key => $value) {
 		?>
     						<tr>
-								<td><?=$value->getID();?></td>
-                                <td><?=$value->getID_USUARIO();?></td>
-                                <td><?=$value->getID_OFERTA();?></td>
-								<td><?=$value->getFECHA_REGISTRO();?></td>
+						     <td><?=$value->getID();?></td>
+                                   <td><?=$value->getID_USUARIO();?></td>
+                                   <td><?=$value->getID_OFERTA();?></td>
+							<td><?=$value->getFECHA_REGISTRO();?></td>
 <td>
 <button data-toggle="modal" data-target="#add_data_Modal" class='update btn btn-success btn-sm'  id='update_<?= $value->getID(); ?>' data-id='<?= $value->getID(); ?>' >Actualizar</button>
 </td>
@@ -104,28 +105,28 @@ $result_dato_catalogo_planes=$obj_dato_catalogo_planes->obtener_lista_planes();
 
 <script>
  $(document).ready(function() {
-    if ($('#lista_usuarios').length) {
+    if ($('#lista_planes').length) {
         //$('#lista_usuarios').DataTable();
 
-$('#lista_usuarios').DataTable( {
+$('#lista_planes').DataTable( {
         
 dom: 'Blfrtip',
         buttons: [{
             extend: 'excelHtml5',
-                messageTop: 'USUARIOS',
+                messageTop: 'PLANES',
                 text:"Exporta Excel",
-                title:"Listado de usuarios",
+                title:"Listado de planes",
         },
         {
             /*'csvHtml5',*/
                 extend: 'csvHtml5',
                 text:"Exporta csv",
-                title:"Listado de usuarios",
-                messageTop: 'Usuarios',
+                title:"Listado de planes",
+                messageTop: 'Planes',
               },
                           {
                 extend: 'pdfHtml5',
-                title: 'Listado de usuarios'
+                title: 'Listado de planes'
             }
         ],
     responsive: true,
@@ -146,7 +147,7 @@ dom: 'Blfrtip',
 
 
 $('#add').click(function(){  
-            $("h4.modal-title").text("Agregado de Usuario");
+            $("h4.modal-title").text("Agregado de Plnes");
             $('#insert').val("Insert");  
             $('#insert_form')[0].reset();  
       });
@@ -185,18 +186,18 @@ $('#add').click(function(){
                          
                           //bootbox.alert('correcto!');
                           Swal.fire({
-                          title: "Registro de Usuarios",
-                          text: "¡Usuario Ingresado Correctamente!",
+                          title: "Registro de Planes",
+                          text: "¡Plan Ingresado Correctamente!",
                           type: "success"
                           }).then(function() {
-                            window.location = "crud_usuarios.php";
+                            window.location = "crud_planes.php";
                           });
 
                       }
                           else{
                             Swal.fire({
                                     type: 'error',
-                                    title: 'No se agregó correctamente el usuario, vuelva a intentar.',
+                                    title: 'No se agregó correctamente el plan, vuelva a intentar.',
                         });
                           }  
                      }  
@@ -205,7 +206,7 @@ $('#add').click(function(){
       })
  
 
-    $('#lista_usuarios tbody').on('click', '.delete', function() {
+    $('#lista_planes tbody').on('click', '.delete', function() {
        
     var el = this;
   
@@ -218,7 +219,7 @@ $('#add').click(function(){
      if(result){
      // AJAX Request
      $.ajax({
-          url: '../controller/controller_delete_usuarios.php',
+          url: '../controller/controller_delete_planes.php',
           type: 'POST',
           data: { id:deleteid },
           success: function(response){
@@ -240,16 +241,16 @@ $('#add').click(function(){
 });
 
 
-$('#lista_usuarios tbody').on('click', '.ver', function() {
-         $("h4.modal-title").text("Detalle de Usuario");
+$('#lista_planes tbody').on('click', '.ver', function() {
+         $("h4.modal-title").text("Detalle de Plan");
     // ver id
-    var usuario_id = $(this).data('id');
+    var plan_id = $(this).data('id');
     //alert(usuario_id);
     
-          if(usuario_id != '')  
+          if(plan_id != '')  
            {  
                 $.ajax({  
-                     url:'../controller/controller_select_usuarios.php',  
+                     url:'../controller/controller_select_planes.php',  
                      method:'POST',  
                      data:{id:usuario_id},  
                      success:function(response){
@@ -269,20 +270,20 @@ $('#lista_usuarios tbody').on('click', '.ver', function() {
 
 
 /*update*/
-$('#lista_usuarios tbody').on('click', '.update', function() {
-    $("h4.modal-title").text("Modificación de Usuario");
+$('#lista_planes tbody').on('click', '.update', function() {
+    $("h4.modal-title").text("Modificación de Planes");
     var usuario_id = $(this).data('id');
                $.ajax({  
-                url:"../controller/controller_fetch_usuarios.php",  
+                url:"../controller/controller_fetch_planes.php",  
                 method:"POST",  
-                data:{id:usuario_id},  
+                data:{id:plan_id},  
                 dataType:"json",  
                 success:function(data){
                 //alert(JSON.stringify(data));
-
-                     $('#usuario_id').val(data.ID); 
-                     $('#f_nombre').val(data.nombre);  
-                     $('#f_correo').val(data.correo);
+                     $('#plan_id').val(data.ID); 
+                     $('#usuario_id').val(data.usuario_id);  
+                     $('#oferta_id').val(data.oferta_id);
+                     $('#f_fecha_registro').val(data.fecha_registro);
 					 $('#f_sugerencia').val(data.sugerencia);      
                      $('#insert').val("Actualizar");  
                      $('#add_data_Modal').modal('show'); 
@@ -309,7 +310,7 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
            <div class="modal-content">  
                 <div class="modal-header">  
                      <legend class="text-center header">
-                     <h4 class="modal-title">Detalles de Usuario</h4>
+                     <h4 class="modal-title">Detalles de Oferta</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                      </legend>  
                        
@@ -337,15 +338,18 @@ $('#lista_usuarios tbody').on('click', '.update', function() {
                      </div>  
                 <div class="modal-body">  
                 <form method="post" id="insert_form">
-                          <label>Id Usuario: </label> 
+                          <label>Id Plan: </label> 
                           <br />
-                          <label>Nombre:</label>
-                          <input type="text" name="f_nombre" id="f_nombre" class="form-control" />  
+                          <label>Id usuario:</label>
+                          <input type="text" name="usuario_id" id="usuario_id" class="form-control" />  
                           <br /> 
-                          <label>Contraseña:</label>
-                          <input type="text" name="f_contraseña" id="f_contraseña" class="form-control" />  
+                          <label>Id oferta:</label>
+                          <input type="text" name="f_oferta" id="f_oferta" class="form-control" />  
                           <br />   
-                          <input type="hidden" name="usuario_id" id="usuario_id" readonly="true" />  
+                          <label>Fecha de registro:</label>
+                          <input type="text" name="f_fecha_registro" id="f_fecha_registro" class="form-control" />  
+                          <br />   
+                          <input type="hidden" name="plan_id" id="plan_id" readonly="true" />  
                           <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />  
                      </form> 
                 </div>  
