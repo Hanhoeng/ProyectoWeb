@@ -1,11 +1,10 @@
 <?php
 	session_start();
+     if(isset($_SESSION['user_id']) && $_SESSION['user_id'] != 0){
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
-     if(isset($_SESSION['user_id']) || $_SESSION['user_id'] != 0){
-?>
 <head>
      <?php include_once "../inclusiones/meta_tags.php"; ?>
 	<link rel="stylesheet" href="../css/estilos2.css">	
@@ -51,7 +50,7 @@ $result_dato_catalogo_sugerencias=$obj_dato_catalogo_sugerencias->obtener_lista_
 <div class="form-group col-md-12">
 
                     <div align="center">  
-                         <input name="add" id="add" type="submit" href="../views/agregar_sugerencias.php" class="btn btn-primary" value="Agregar Sugerencia"></div>
+                    <a href="agregar_sugerencia.php"><button name="add" id="add" class="btn btn-primary"> Agregar Sugerencia</button></a></div>
                      </div> 
 
 

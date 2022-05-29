@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['user_id']) || $_SESSION['user_id'] != 0){
+	if(isset($_SESSION['user_id']) && $_SESSION['user_id'] != 0){
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
   </head>
   <body background="../css/imagenes/fondo.png">
   <header>
-  <a href="index.php"><img src="./../css/imagenes/logo (1).png" width="300" height="150"></a>
+  <a href="../views/index.php"><img src="./../css/imagenes/logo (1).png" width="300" height="150"></a>
     </header>
 
 

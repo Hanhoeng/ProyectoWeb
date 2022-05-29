@@ -1,11 +1,9 @@
 <?php
 	session_start();
+     if(isset($_SESSION['user_id']) && $_SESSION['user_id'] != 0){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
-	if(isset($_SESSION['user_id']) || $_SESSION['user_id'] != 0){
-?>
 
 <head>
 	<meta charset="UTF-8">
@@ -54,9 +52,10 @@ $result_dato_catalogo_oferta=$obj_dato_catalogo_oferta->obtener_lista_ofertas();
 <!--<table id="lista_usuarios" class="table table-striped table-bordered text-center" border="0">-->
 <div class="form-group col-md-12">
 
-                    <div align="center">  
-                         <input name="add" id="add" type="submit" href="../views/agregar_oferta.php" class="btn btn-primary" value="Agregar Oferta"></div>
-                     </div> 
+               <div align="center">  
+                    <a href="agregar_oferta.php"><button name="add" id="add" class="btn btn-primary"> Agregar Oferta</button></a>
+               </div>
+</div> 
 
 
 <table id="lista_oferta" class="table table-striped table-bordered" border="0">

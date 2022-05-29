@@ -1,11 +1,10 @@
 <?php
 	session_start();
+     if(isset($_SESSION['user_id']) && $_SESSION['user_id'] != 0){
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
-     if(isset($_SESSION['user_id']) || $_SESSION['user_id'] != 0){
-?>
 <head>
      <?php include_once "../inclusiones/meta_tags.php"; ?>
 	<link rel="stylesheet" href="../css/estilos2.css">	
@@ -51,7 +50,7 @@ $result_dato_catalogo_planes=$obj_dato_catalogo_planes->obtener_lista_planes();
 <div class="form-group col-md-12">
 
                     <div align="center">  
-                         <input name="add" id="add" type="submit" href="../views/agregar_planes.php" class="btn btn-primary" value="Agregar Planes"></div>
+                    <a href="agregar_planes.php"><button name="add" id="add" class="btn btn-primary"> Agregar Planes</button></a></div>
                      </div> 
 
 
