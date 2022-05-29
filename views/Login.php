@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	if(isset($_SESSION['user_id']) || $_SESSION['user_id'] == 0){
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -44,3 +49,9 @@
     ?>
   </body>
 </html>
+<?php
+}
+else{
+  header("Location: /ProyectoWeb/views/menu_crud.php");
+}
+?>

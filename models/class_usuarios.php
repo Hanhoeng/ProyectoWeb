@@ -4,12 +4,14 @@ if (class_exists("usuarios")!=True){
         protected $ID;
         protected $NOMBRE;
         protected $CONTRASEÑA;
+        protected $IS_ADMIN;
     
-        public function __construct($id=NULL,$nombre=NULL,$contraseña=NULL)
+        public function __construct($id=NULL,$nombre=NULL,$contraseña=NULL,$is_admin=NULL)
         {
             $this->ID=$id;
             $this->NOMBRE=$nombre;
             $this->CONTRASEÑA=$contraseña;
+            $this->IS_ADMIN=$is_admin;
         }
     
         function getID(){
@@ -34,6 +36,14 @@ if (class_exists("usuarios")!=True){
     
         function setCONTRASEÑA($contraseña){
             $this->CONTRASEÑA=$contraseña;
+        }
+
+        function getIS_ADMIN(){
+            return $this->IS_ADMIN;
+        }
+    
+        function setIS_ADMIN($is_admin){
+            $this->IS_ADMIN=$is_admin;
         }
     }
     }

@@ -25,7 +25,7 @@
             $obj_det=null;
             if($total_USUARIOS==1){
                 $renglon=mysqli_fetch_assoc($result);
-                $obj_det= new usuarios($renglon["ID"],utf8_encode($renglon["NOMBRE"]),utf8_encode($renglon["CONTRASEÑA"]));
+                $obj_det= new usuarios($renglon["ID"],utf8_encode($renglon["NOMBRE"]),utf8_encode($renglon["CONTRASEÑA"]),utf8_encode($renglon["IS_ADMIN"]));
             }//end if
             return $obj_det;
         }
@@ -33,14 +33,14 @@
             //Insertar
         function insertar_usuario($obj){
             $sql = "INSERT INTO usuarios (";
-            $sql .= "ID,";
             $sql .= "NOMBRE,";
-            $sql .= "CONTRASEÑA";
+            $sql .= "CONTRASEÑA,";
+            $sql .= "IS_ADMIN";
             $sql .= ") ";
             $sql .= " VALUES(";
-            $sql .= "'".$obj->getID()."', ";
             $sql .= "'".$obj->getNOMBRE()."', ";
             $sql .= "'".$obj->getCONTRASEÑA()."',";
+            $sql .= "'".$obj->getIS_ADMIN()."'";
             $sql .= ");";
             $this->set_sql($sql);
             $this->db_conn->set_charset("utf8");
@@ -120,7 +120,7 @@
         public function is_correct($user, $pass){
             $user=$this->db_conn->real_escape_string($user);
             $pass=$this->db_conn->real_escape_string($pass);
-            $sql = "SELECT ID FROM usuarios";
+            $sql = "SELECT IS_ADMIN FROM usuarios";
             $sql.= " WHERE NOMBRE='$user'";
             $sql.= " AND CONTRASEÑA='$pass'";
             $this->set_sql($sql);
