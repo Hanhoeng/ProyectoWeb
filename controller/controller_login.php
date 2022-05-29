@@ -16,12 +16,12 @@
   if(!$errores){
     include("../models/class_usuarios.php");
     include("../models/class_usuarios_dal.php");
-    $obj_usuario = new usuarios(NULL,$user,$pass);
+    $obj_usuario = new usuarios(NULL,$user,$pass,NULL);
     $metodos_usuarios = new usuarios_dal;
     $id = $metodos_usuarios->is_correct($obj_usuario->getNOMBRE(),$obj_usuario->getCONTRASEÑA());
     if($id!=0){
       $_SESSION['user_id']=$id;
-      header("Location: /ProyectoWeb/views/index.php");
+      header("Location: /ProyectoWeb/views/menu_crud.php");
     }else{
       header("Location: /ProyectoWeb/views/Login.php");
     }
