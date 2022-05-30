@@ -38,10 +38,23 @@
           <input type="password" class="form-control" id="password" name="password" placeholder="Enter your Password" required="True">
       </div>
       <!-- Captcha -->
-      <button class="g-recaptcha" 
+      <button class="g-recaptcha"
+        id="captcha"
+        name="captcha"
         data-sitekey="6LeGJw8gAAAAAMK11G3_jvFYoPV8PNhGdLG99Yfl" 
         data-callback='onSubmit' 
         data-action='submit'>Acceder</button>
+      
+      <script>
+        function onClick(e) {
+          e.preventDefault();
+          grecaptcha.ready(function() {
+            grecaptcha.execute('6LeGJw8gAAAAAMK11G3_jvFYoPV8PNhGdLG99Yfl', {action: 'submit'}).then(function(token) {
+                // Add your logic to submit to your backend server here.
+            });
+          });
+        }
+      </script>
 
     </form>
     <?php
