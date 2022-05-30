@@ -50,7 +50,7 @@
           e.preventDefault();
           grecaptcha.ready(function() {
             grecaptcha.execute('6LeGJw8gAAAAAMK11G3_jvFYoPV8PNhGdLG99Yfl', {action: 'submit'}).then(function(token) {
-                // Add your logic to submit to your backend server here.
+                
             });
           });
         }
